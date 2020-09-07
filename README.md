@@ -3,8 +3,7 @@
 The challenge consists of three fundamental steps:
 
 1. Start the "api" service through the provided docker-compose.yml file
-2. Develop a script to ingest data through the api's main endpoint (if hosted locally "localhost:5000/ap
-i/v1/resources/data")
+2. Develop a script to ingest data through the api's main endpoint (if hosted locally "localhost:5000/api/v1/data")
 
 **NOTE**: The data from the API endpoint is paginated. Thus, you need to give to the API endpoint also a
  GET parameter "page" (starting from 0 until it will throw an error).
