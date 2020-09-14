@@ -10,10 +10,6 @@ def home():
     return """<h1>Streaming API</h1>
     """
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
