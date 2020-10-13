@@ -11,6 +11,9 @@ The challenge consists of three fundamental steps:
 3. Now that you are able to ingest data from the API, implement an online regression model (you can use 
 any library) which gets incrementally fitted on the data (See "ML Model" section).
 
+**IMPORTANT** The ingestion script should ingest data in batches and feed it to the model in batches.
+Do not just pre-load all the data in advance. This is the "streaming" part of the challenge.
+
 ## ML Model
 
 Our API returns 4 columns:
