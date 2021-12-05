@@ -7,7 +7,7 @@ from sqlmodel import Field, SQLModel, Session, create_engine, select
 class ResultBase(SQLModel):
     competence: float
     network_ability: float
-    promoted: int
+    promoted: bool
 
 class Result(ResultBase, table=True):
     __tablename__ = "data"

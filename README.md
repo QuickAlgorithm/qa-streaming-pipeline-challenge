@@ -18,7 +18,7 @@ Our API returns 4 columns:
 * `id` (`int`): An incremental identifier for each row.
 * `network_ability` (`float`): Represents the networking ability of an employee.
 * `competence` (`float`): Represents actual work competence of an employee.
-* `promoted` (`int`: `0` or `1`): To be interpreted as a boolean variable that indicates whether the employee got a promotion or not.
+* `promoted` (`bool`): Indicates whether the employee got a promotion or not.
 
 We are interested in two kind of models:
 
