@@ -27,7 +27,7 @@ We are interested in two kind of models:
 Firstly, develop a simple classification algorithm which attempts to predict the variable "promoted" through the other variables. <br>
 The focus of this model is pure prediction capability.
 
-Secondly, develop one or more regression models in which the endogenous variable is "network_ability". <br>
+Secondly, develop one or more regression models in which the predicted/target variable is "network_ability". <br>
 The goal of this second kind of model is to understand the relationship between the other variables and "network_ability". <br>
 Hint: Try to reason qualitatively about the dependencies of the variables before starting to crunch numbers, try to think like a scientist.
 
