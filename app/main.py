@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
@@ -31,7 +31,7 @@ app = FastAPI(
 async def home():
     return "<h1>Streaming API</h1>"
 
-@app.get('/api/v1/data', response_model=List[ResultRead])
+@app.get('/api/v1/data', response_model=list[ResultRead])
 def read_data(page: int):
     engine = create_engine('sqlite:////data/main.db')
     with Session(engine) as session:
