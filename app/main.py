@@ -27,10 +27,6 @@ app = FastAPI(
     version="0.0.2",
 )
 
-@app.get("/", response_class=HTMLResponse)
-async def home():
-    return "<h1>Streaming API</h1>"
-
 @app.get('/api/v1/data', response_model=list[ResultRead])
 def read_data(page: int):
     engine = create_engine('sqlite:////data/main.db')
