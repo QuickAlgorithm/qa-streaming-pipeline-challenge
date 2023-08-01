@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9-slim
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.11-slim
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt

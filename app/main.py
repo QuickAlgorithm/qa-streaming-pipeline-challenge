@@ -1,21 +1,9 @@
-from typing import Optional
-
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
-from sqlmodel import Field, SQLModel, Session, create_engine, select
+from sqlalchemy import select
 
-class ResultBase(SQLModel):
-    competence: float
-    network_ability: float
-    promoted: bool
-
-class Result(ResultBase, table=True):
-    __tablename__ = "data"
-
-    id: Optional[int] = Field(default=None, primary_key=True)
-
-class ResultRead(ResultBase):
-    id: int
+from orm.db import DBSession
+from orm.result import ResultOrm
+from schema.result import ResultSchema
 
 DESCRIPTION = """
 API for the Quick Algorithm's Streaming Pipeline challenge.
@@ -27,11 +15,10 @@ app = FastAPI(
     version="0.0.2",
 )
 
-@app.get('/api/v1/data', response_model=list[ResultRead])
-def read_data(page: int):
-    engine = create_engine('sqlite:////data/main.db')
-    with Session(engine) as session:
-        results = session.exec(
-            select(Result).limit(10).offset(10*page)
-        ).all()
+
+@app.get("/api/v1/data")
+async def read_data(page: int, session: DBSession) -> list[ResultSchema]:
+    results = (
+        await session.scalars(select(ResultOrm).limit(10).offset(10 * page))
+    ).all()
     return results
